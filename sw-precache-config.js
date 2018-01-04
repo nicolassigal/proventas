@@ -8,6 +8,7 @@ module.exports = {
     'dist/**.css',
     'dist/assets/**.svg',
     'dist/assets/**.png',
+    'dist/assets/icons/**.png',
     'dist/assets/**.jpg',
     'https://fonts.googleapis.com/icon?family=Material+Icons'
   ]

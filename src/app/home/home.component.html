@@ -1,3 +1,17 @@
 <div class="home">
     <img src="./../../assets/landscape.svg" alt="">
+      <form #personForms>
+          <mat-form-field>
+              <input required autocomplete="off" matInput placeholder="Nombre" [(ngModel)]="name" name="name" type="text" class="example-right-align">
+          </mat-form-field>
+          <mat-form-field>
+            <input required autocomplete="off" matInput placeholder="Apellido" [(ngModel)]="lastname" name="lastname" type="text" class="example-right-align">
+          </mat-form-field>
+          <div>
+              <button mat-raised-button (click)="put()">Put data</button>
+          </div>
+      </form>
+    <ul *ngIf="persons.length">
+      <li *ngFor="let person of persons">{{person.name}} {{person.lastname}}</li>
+    </ul>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatusService } from './shared/status.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { StatusService } from './shared/status.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  constructor(private status: StatusService){}
+  constructor(private status: StatusService, private data: DataStorageService) { }
 
   ngOnInit() {
     window.addEventListener('online', () => this.status.networkSubject.next(true));
