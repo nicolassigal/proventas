@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container"  (swipeleft)="sidenav.close()">
+  <mat-sidenav class="sidenav" #sidenav [mode]="'Push'">
+    <div class="menu-top">
+    </div>
+    <div class="menu-bottom">
+      <ul>
+        <a (click)="sidenav.close(); logOut();"><li> <i class="material-icons">keyboard_arrow_left</i> Log Out</li></a>
+      </ul>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content (swiperight)="sidenav.open()">
+    <div class="navbar">
+      <i (click)="sidenav.toggle()" class="material-icons">menu</i>
+    </div>
+    <router-outlet></router-outlet>
+    <app-status-bar></app-status-bar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

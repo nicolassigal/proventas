@@ -1,0 +1,22 @@
+<div class="register">
+    <img src="./../../assets/landscape.svg" alt="">
+    <div class="register-container">
+      <div class="register-form">
+        <form #loginForm>
+          <mat-form-field>
+            <input required autocomplete="off" matInput placeholder="Correo Electr&oacute;nico" [(ngModel)]="email" name="email" type="email" class="example-right-align">
+          </mat-form-field>
+          <mat-form-field>
+            <input required autocomplete="off" matInput placeholder="Contrase&ntilde;a" type="password" [(ngModel)]="password" name="password" class="example-right-align">
+          </mat-form-field>
+          <mat-form-field>
+              <input required autocomplete="off" matInput placeholder="Repite tu Contrase&ntilde;a" [(ngModel)]="password2" name="password2" type="password" class="example-right-align">
+            </mat-form-field>
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" (click)="register()">Registrarme</button>
+            <button mat-raised-button color="warn" (click)="navigateToLogin()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

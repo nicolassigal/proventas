@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="network">
+    <span>
+      <i *ngIf="network" class="material-icons">signal_cellular_4_bar</i>
+      <i *ngIf="!network" class="material-icons">signal_cellular_connected_no_internet_4_bar</i>
+     </span>
+    <div class="network-indicator" [ngClass]="network ? 'enabled':'disabled'"></div>
+  </div>
+  <span class="geolocation" *ngIf="geolocation" [ngStyle]="syncing ? {'color':'gray'}: {'color':'white'}">
+    <i *ngIf="!showmap" class="material-icons">location_on</i>
+    <span> <a href="geo:{{geolocation.latitude}}, {{geolocation.longitude}}">{{geolocation.latitude}} , {{geolocation.longitude}}</a></span>
+  </span>
+  <div class="sync">
+      <span *ngIf="network"><i (click)="sync()" class="material-icons sync-icon" [ngClass]="syncing ? 'syncing': ''">sync</i></span>
+      <span *ngIf="!network"><i class="material-icons">sync_disabled</i></span>
+  </div>
+</div>

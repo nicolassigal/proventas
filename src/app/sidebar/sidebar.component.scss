@@ -1,0 +1,67 @@
+.sidenav {
+  width: 70%;
+  .menu {
+    &-top {
+      width: 100%;
+      height: 30%;
+      background:url('./../../assets/farming.jpg');
+      background-size: cover;
+    }
+    &-bottom {
+      margin: 2%;
+      ul {
+        padding:0;
+        margin:0;
+        a{
+          text-decoration: none;
+          width: 100%;
+          height:40px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          color: #2e2e2e;
+          &:active, &:focus, &:active:focus {
+            outline: none;
+          }
+          li {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0px 10px;
+            list-style: none;
+            i {
+              padding-right: 10px;
+            }
+          }
+        }
+      }
+      width: 96%;
+      height: 66%;
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  i {
+    color:white;
+    margin: 10px;
+  }
+}
+
+.example-container {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left:0;
+}
