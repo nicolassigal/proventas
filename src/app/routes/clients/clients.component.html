@@ -1,0 +1,9 @@
+<mat-card class="search-box">
+  <app-search-box [placeholder]="'Buscar Clientes'" [items]="clients"></app-search-box>
+  <button mat-raised-button color="primary" (click)="addClient()">Agregar</button>
+</mat-card>
+<mat-card>
+    <mat-card *ngFor="let client of clients">
+        {{client.name}} {{client.lastname}}
+    </mat-card>
+</mat-card>

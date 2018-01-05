@@ -7,21 +7,21 @@
     </div>
     <div class="menu-bottom">
       <ul>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">assignment</i> Reclamos</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">subject</i> Informes </li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">today</i> Planificador d&iacute;ario</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">person_pin</i> Mi Cuenta</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">sync</i> Sincronizar</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">supervisor_account</i> Clientes</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">spa</i> partidas</li></a>
-        <a (click)="sidenav.close()" mat-button ><li> <i class="material-icons">photo_library</i> Galer&iacute;a</li></a>
-        <a (click)="sidenav.close(); logOut();" mat-button ><li> <i class="material-icons">keyboard_arrow_left</i> Log Out</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">assignment</i> Reclamos</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">subject</i> Informes </li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">today</i> Planificador d&iacute;ario</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">person_pin</i> Mi Cuenta</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">sync</i> Sincronizar</li></a>
+        <a (click)="sidenav.close()" routerLink="/dashboard/clients"><li> <i class="material-icons">supervisor_account</i> Clientes</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">spa</i> partidas</li></a>
+        <a (click)="sidenav.close()"><li> <i class="material-icons">photo_library</i> Galer&iacute;a</li></a>
+        <a (click)="sidenav.close(); logOut();"><li> <i class="material-icons">keyboard_arrow_left</i> Salir</li></a>
       </ul>
     </div>
   </mat-sidenav>
-  <mat-sidenav-content (swiperight)="sidenav.open()">
+  <mat-sidenav-content (swiperight)="openSidebar()">
     <div class="navbar">
-      <i (click)="sidenav.toggle()" class="material-icons">menu</i>
+      <i (click)="toggleSidenav()" class="material-icons">menu</i>
     </div>
     <router-outlet></router-outlet>
     <app-status-bar></app-status-bar>

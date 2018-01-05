@@ -23,7 +23,8 @@
         &-bg {
           width: 100%;
           height:100%;
-          background: url('http://i.pravatar.cc/300');
+          //background: url('http://i.pravatar.cc/300');
+          background: url('./../../assets/joy.jpg');
           background-size:cover;
         }
       }
@@ -41,8 +42,14 @@
         flex-direction: column;
         justify-content: space-between;
         a{
+          text-decoration:none;
+          color: #2e2e2e;
           padding:0px 10px;
           width:100%;
+
+          &:active, &:focus, &:active:focus {
+            outline: none;
+          }
           li {
             display: flex;
             flex-direction: row;
