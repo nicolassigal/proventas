@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   lastname;
   constructor(private authService: AuthenticationService, private storage: DataStorageService) { }
   ngOnInit() {
-    this.storage.getData('persons').subscribe(persons => console.log(persons));
+    this.storage.getData('persons').subscribe(persons => this.persons = persons);
   }
 
   put = () => {
