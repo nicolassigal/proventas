@@ -2,6 +2,7 @@ import { AuthenticationService } from './authentication.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AngularFirestore } from 'angularfire2/firestore';
+import * as firebase from 'firebase';
 import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DataStorageService {
@@ -18,11 +19,22 @@ export class DataStorageService {
     return this.database.createId();
   }
 
-  putData = (table, content) => {
-   return this.database.collection(table).add(content);
+  putData = (collection, content) => {
+    return this.database.collection(collection).doc(`${content.id}`).set(content);
   }
 
-  getData = (table) => {
-    return this.database.collection(table).valueChanges();
+  getAllData = (collection, query?) => {
+    if (query) {
+      switch (query.q) {
+        case 'orderBy':
+          return this.database.collection(collection, ref => ref.orderBy(query.key)).valueChanges();
+        case 'where':
+          return this.database.collection(collection, ref => ref.where(query.key, query.method, query.value)).valueChanges();
+        default:
+          this.database.collection(collection).valueChanges();
+      }
+    } else {
+      return this.database.collection(collection).valueChanges();
+    }
   }
 }
