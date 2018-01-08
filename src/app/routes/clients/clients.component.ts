@@ -1,6 +1,7 @@
+
 import { startWith } from 'rxjs/operators';
 import { SidebarService } from './../../sidebar/sidebar.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../../shared/data-storage.service';
 import { map } from 'rxjs/operator/map';
@@ -13,7 +14,11 @@ import { map } from 'rxjs/operator/map';
 export class ClientsComponent implements OnInit {
   clients: any;
   fullname;
-  constructor(private route: ActivatedRoute, private sidebarService: SidebarService, private storage: DataStorageService) {
+  search;
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private sidebarService: SidebarService,
+    private storage: DataStorageService) {
    }
 
   ngOnInit() {
@@ -26,5 +31,17 @@ export class ClientsComponent implements OnInit {
 
   addClient = () => {
 
+  }
+
+  call = (tel) => {
+    window.location.href = `tel:${tel}`;
+  }
+
+  email = (mail) => {
+    window.location.href = `mailTo:${mail}`;
+  }
+
+  map = (location) => {
+    window.location.href = `https://www.google.com/maps/search/${location}/@${location},13z`;
   }
 }

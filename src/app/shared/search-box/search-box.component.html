@@ -1,8 +1,0 @@
-<mat-form-field class="example-full-width">
-    <input matInput [placeholder]="placeholder" aria-label="State" [matAutocomplete]="auto" [formControl]="itemsCtrl" name="itemsCtrl">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of items" [value]="item.displayText">
-        <span>{{ item.displayText }}</span>
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>

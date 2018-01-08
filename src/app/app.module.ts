@@ -22,9 +22,9 @@ import { HttpModule } from '@angular/http';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { SidebarService } from './sidebar/sidebar.service';
-import { SearchBoxComponent } from './shared/search-box/search-box.component';
 import { CardListComponent } from './shared/card-list/card-list.component';
 import { CardComponent } from './shared/card/card.component';
+import { SearchTextPipe } from './shared/search-text.pipe';
 
 @NgModule({
   declarations: [
@@ -35,9 +35,9 @@ import { CardComponent } from './shared/card/card.component';
     SpinnerComponent,
     NavbarComponent,
     DashboardComponent,
-    SearchBoxComponent,
     CardListComponent,
-    CardComponent
+    CardComponent,
+    SearchTextPipe
   ],
   imports: [
     BrowserModule,
