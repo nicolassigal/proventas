@@ -1,5 +1,7 @@
+import { SidebarService } from './../../sidebar/sidebar.service';
 import { CurrencyService } from './currency.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-currency',
@@ -19,9 +21,10 @@ export class CurrencyComponent implements OnInit {
   convertedVal;
   symbol;
   saveId;
-  constructor(private currency: CurrencyService) { }
+  constructor(private currency: CurrencyService, private sidebarService: SidebarService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.sidebarService.setTitle(this.route.snapshot.data[0]['title']);
     this.from = this.fromCurrency ? this.fromCurrency.id : 'CLP';
     this.to = this.toCurrency ? this.toCurrency.id : 'ARS';
     this.currency.getCurrencyCountryFromDatabase().subscribe((res) => {
