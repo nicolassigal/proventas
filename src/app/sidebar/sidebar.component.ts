@@ -35,8 +35,10 @@ export class SidebarComponent implements OnInit, AfterContentInit {
     .catch(error => console.log(error));
   }
 
-  openSidebar = () => {
-    this.sidebarService.open();
+  openSidebar = (direction) => {
+    if (direction === 'right') {
+      this.sidebarService.open();
+    }
   }
 
   toggleSidenav = () => {

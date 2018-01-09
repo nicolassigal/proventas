@@ -28,7 +28,9 @@ export class CurrencyComponent implements OnInit {
     this.from = this.fromCurrency ? this.fromCurrency.id : 'CLP';
     this.to = this.toCurrency ? this.toCurrency.id : 'ARS';
     this.currency.getCurrencyCountryFromDatabase().subscribe((res) => {
-      this.currencies = res[0]['data'];
+     if (!this.currencies.length) {
+          this.currencies = res[0]['data'];
+     }
     });
     this.currency.getCurrencies().subscribe((data) => {
       this.processCurrencyCountry(data);
