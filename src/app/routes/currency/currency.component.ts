@@ -15,21 +15,20 @@ export class CurrencyComponent implements OnInit {
   amount;
   value;
   currencies;
+  currenciesFromBD;
   convertedVal;
   symbol;
   saveId;
   constructor(private currency: CurrencyService) { }
 
   ngOnInit() {
+    this.currency.getCurrencyCountryFromDatabase().subscribe((res) => {
+      this.currencies = res[0]['data'];
+      this.from = this.currencies.filter(currency => currency.id === this.fromCurrency ? this.fromCurrency.id : null || 'CLP')[0].id;
+      this.to = this.currencies.filter(currency => currency.id === this.toCurrency ? this.toCurrency.id : null || 'ARS')[0].id;
+    });
     this.currency.getCurrencies().subscribe((data) => {
       this.processCurrencyCountry(data);
-    },
-    error => {
-        this.currency.getCurrencyCountryFromDatabase().subscribe((res) => {
-          this.currencies = res[0]['data'];
-          this.from = this.currencies.filter(currency => currency.id === this.fromCurrency ? this.fromCurrency.id : null || 'CLP')[0].id;
-          this.to = this.currencies.filter(currency => currency.id === this.toCurrency ? this.toCurrency.id : null || 'ARS')[0].id;
-        });
     });
   }
 
@@ -54,8 +53,8 @@ export class CurrencyComponent implements OnInit {
     });
     this.currencies = currencies;
 
-    this.from = this.currencies.filter(currency => currency.id === 'CLP')[0].id;
-    this.to = this.currencies.filter(currency => currency.id === 'ARS')[0].id;
+    this.from = this.currencies.filter(currency => currency.id === this.fromCurrency ? this.fromCurrency.id : null || 'CLP')[0].id;
+    this.to = this.currencies.filter(currency => currency.id === this.toCurrency ? this.toCurrency.id : null || 'ARS')[0].id;
   }
 
   convert = () => {
