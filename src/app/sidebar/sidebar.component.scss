@@ -81,6 +81,7 @@
 }
 
 .example-container {
+  touch-action: auto;
   position: absolute;
   top:0;
   bottom: 0;

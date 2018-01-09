@@ -25,6 +25,16 @@ import { SidebarService } from './sidebar/sidebar.service';
 import { CardListComponent } from './shared/card-list/card-list.component';
 import { CardComponent } from './shared/card/card.component';
 import { SearchTextPipe } from './shared/search-text.pipe';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+      'pinch': { enable: false },
+      'rotate': { enable: false }
+  };
+}
+
 
 @NgModule({
   declarations: [
@@ -52,7 +62,14 @@ import { SearchTextPipe } from './shared/search-text.pipe';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [StatusService, AuthenticationService, AuthGuard, SpinnerService, DataStorageService, SidebarService],
+  providers: [StatusService,
+    AuthenticationService,
+    AuthGuard,
+    SpinnerService,
+    DataStorageService,
+    SidebarService,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
