@@ -1,0 +1,21 @@
+<form>
+  <mat-form-field>
+    <mat-select [(value)]="from">
+      <mat-option [value]="currency.id" *ngFor="let currency of currencies">{{currency.currencyName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-icon-button color="primary" (click)="switch()">
+    <mat-icon>swap_vert</mat-icon>
+  </button>
+  <mat-form-field>
+    <mat-select [(value)]="to">
+      <mat-option [value]="currency.id" *ngFor="let currency of currencies">{{currency.currencyName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Valor" name="value" [(ngModel)]="value">
+  </mat-form-field>
+  <br>
+  <h3 *ngIf="symbol"> {{symbol}} {{convertedVal}} </h3>
+  <button mat-raised-button color="primary" (click)="convert()">Convertir</button>
+</form>

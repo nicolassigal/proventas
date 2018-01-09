@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  height: 100%;
+  .mat-icon-button {
+    position: absolute;
+    right:0;
+    top: 145px;
+  }
+  .mat-raised-button, .mat-form-field {
+    width:100%;
+  }
+}

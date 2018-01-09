@@ -1,3 +1,4 @@
+import { CurrencyComponent } from './routes/currency/currency.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
     {path: 'clients', component: ClientsComponent, children: [
       {path: 'list', component: ClientListComponent, data: [{title: 'Clientes'}]},
       {path: 'add', component: ClientAddComponent, data: [{title: 'Agregar Cliente'}]}
-    ]}
+    ]},
+    {path: 'currency', component: CurrencyComponent, data: [{title: 'Divisas'}]}
   ]},
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
@@ -35,5 +37,6 @@ export const routingComponents = [
   RegisterComponent,
   ClientsComponent,
   ClientListComponent,
-  ClientAddComponent
+  ClientAddComponent,
+  CurrencyComponent
 ];
