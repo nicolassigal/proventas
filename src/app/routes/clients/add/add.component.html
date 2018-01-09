@@ -1,0 +1,27 @@
+<form>
+  <mat-form-field>
+    <input matInput placeholder="Empresa" [(ngModel)]="companyName" name="companyName">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Nombre" [(ngModel)]="name" name="name">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Apellido" [(ngModel)]="lastname" name="lastname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="E-Mail" [(ngModel)]="email" name="email">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Telefono" [(ngModel)]="phone" name="phone">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Ubicacion" [(ngModel)]="location" name="location">
+  </mat-form-field>
+  <br/>
+
+  <button mat-raised-button color="primary" (click)="add()">Agregar</button>
+</form>

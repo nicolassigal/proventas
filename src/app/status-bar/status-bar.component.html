@@ -8,7 +8,7 @@
   </div>
   <span class="geolocation" *ngIf="geolocation" [ngStyle]="syncing ? {'color':'gray'}: {'color':'white'}">
     <i *ngIf="!showmap" class="material-icons">location_on</i>
-    <span> <a  ngDisabled="!network" [href]="url">{{geolocation.latitude}} , {{geolocation.longitude}}</a></span>
+    <span> <a  ngDisabled="!network" (click)="geolocate()" href="#">{{geolocation.latitude}} , {{geolocation.longitude}}</a></span>
   </span>
   <div class="sync">
       <span *ngIf="network"><i (click)="sync()" class="material-icons sync-icon" [ngClass]="syncing ? 'syncing': ''">sync</i></span>

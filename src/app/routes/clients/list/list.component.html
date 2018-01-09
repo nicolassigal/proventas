@@ -1,0 +1,37 @@
+<mat-card class="search-box">
+  <mat-form-field>
+    <input matInput placeholder="Buscar Clientes" [(ngModel)]="search" name="search">
+  </mat-form-field>
+</mat-card>
+<br/>
+<button mat-mini-fab color="primary" (click)="addClient()" class="addbtn"><i class="material-icons">add</i></button>
+<div class="clients">
+    <div class="clients-card" *ngFor="let client of clients | filter: search">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <span *ngIf="client.companyName">{{client.companyName}}</span>
+                    <span *ngIf="!client.companyName">{{client.fullname}}</span>
+                  </mat-card-title>
+                  <mat-card-subtitle *ngIf="client.companyName">
+                    <ul>
+                        <li>Representante: {{client.fullname}}</li>
+                    </ul>
+                  </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <ul>
+                    <li *ngIf="client.phone"><i class="material-icons">phone</i> Tel&eacute;fono: {{ client.phone }}</li>
+                    <li *ngIf="client.email"><i class="material-icons">email</i> Correo: {{ client.email }}</li>
+                    <li *ngIf="client.location"><i class="material-icons">location_on</i>Ubicar: {{ client.location }}</li>
+                  </ul>
+            </mat-card-content>
+            <mat-card-footer>
+              <button *ngIf="client.phone" (click)="call(client.phone)" mat-raised-button color="warn">Llamar</button>
+              <button *ngIf="client.email" (click)="email(client.email)" mat-raised-button color="primary">Enviar Correo</button>
+              <button *ngIf="client.location" (click)="map(client.location)" mat-raised-button color="accent">Mapa</button>
+            </mat-card-footer>
+        </mat-card>
+        <br/>
+    </div>
+</div>

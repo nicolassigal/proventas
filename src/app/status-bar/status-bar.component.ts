@@ -19,8 +19,6 @@ export class StatusBarComponent implements OnInit {
     this.status.getCurrentLocation();
     this.status.locationSubject.subscribe(location => {
       this.geolocation = location.coords;
-      let uri = `geo: ${this.geolocation.latitude}, ${this.geolocation.longitude}`;
-      this.url = this.sanitizer.bypassSecurityTrustResourceUrl(uri);
     });
     this.status.syncSubject.subscribe(status => this.syncing = status);
     this.status.networkSubject.subscribe(status => this.network = status);
@@ -28,6 +26,12 @@ export class StatusBarComponent implements OnInit {
 
   sync = () => {
     this.status.sync();
+  }
+
+  geolocate = () => {
+    const location = `${this.geolocation.latitude}, ${this.geolocation.longitude}`;
+    const url = `https://www.google.com/maps/search/${location}/@${location},13z`;
+    window.location.href = url;
   }
 
   getNetworkStatus = () => {
