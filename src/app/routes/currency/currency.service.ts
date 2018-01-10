@@ -20,6 +20,10 @@ export class CurrencyService {
     this.storage.putData('currencies_country', cObject);
   }
 
+  checkifExist = (collection) => {
+    return this.storage.getAllData(collection);
+  }
+
   getCurrencyCountryFromDatabase = () => {
     return this.storage.getAllData('currencies_country');
   }
