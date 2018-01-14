@@ -1,27 +1,43 @@
 <form>
-  <mat-form-field>
-    <input matInput placeholder="Empresa" [(ngModel)]="companyName" name="companyName">
-  </mat-form-field>
+  <div class="input-field">
+    <mat-icon color="primary">location_city</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Empresa" [(ngModel)]="companyName" name="companyName">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <mat-icon color="primary">person</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="name" name="name">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <mat-icon color="primary">person</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Apellido" [(ngModel)]="lastname" name="lastname">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <mat-icon color="primary">contact_mail</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="E-Mail" [(ngModel)]="email" name="email">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <mat-icon color="primary">contact_phone</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Tel&eacute;fono" [(ngModel)]="phone" name="phone">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <mat-icon color="primary">location_on</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Ubicaci&oacute;n" [(ngModel)]="location" name="location">
+    </mat-form-field>
+  </div>
+  <div class="input-field">
+    <button (click)="markLocation()" mat-button color="primary">Marcar ubicaci&oacute;n Actual</button>
+  </div>
   <br/>
-  <mat-form-field>
-    <input matInput placeholder="Nombre" [(ngModel)]="name" name="name">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput placeholder="Apellido" [(ngModel)]="lastname" name="lastname">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="E-Mail" [(ngModel)]="email" name="email">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput placeholder="Telefono" [(ngModel)]="phone" name="phone">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput placeholder="Ubicacion" [(ngModel)]="location" name="location">
-  </mat-form-field>
-  <br/>
-
   <button mat-raised-button color="primary" (click)="add()">Agregar</button>
 </form>

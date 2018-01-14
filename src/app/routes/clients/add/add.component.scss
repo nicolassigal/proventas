@@ -1,0 +1,26 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20% 10%;
+  height: 100%;
+  .input-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .mat-icon {
+      padding-right: 10px;
+    }
+  }
+  .mat-icon-button {
+    position: absolute;
+    right:0;
+    top: 145px;
+  }
+  .mat-raised-button, .mat-form-field {
+    width:100%;
+  }
+}

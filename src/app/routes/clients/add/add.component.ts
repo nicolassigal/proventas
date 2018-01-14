@@ -1,3 +1,4 @@
+import {StatusService} from '../../../shared/status.service';
 import { Component, OnInit } from '@angular/core';
 import {SidebarService} from '../../../sidebar/sidebar.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,11 +21,19 @@ export class ClientAddComponent implements OnInit {
     private sidebarService: SidebarService,
     private route: ActivatedRoute,
     private router: Router,
-    private storage: DataStorageService) {
+    private storage: DataStorageService,
+    private status: StatusService) {
    }
 
   ngOnInit() {
     this.sidebarService.setTitle(this.route.snapshot.data[0]['title']);
+  }
+
+  markLocation = () => {
+    this.status.getCurrentLocation();
+    this.status.locationSubject.subscribe(location => {
+      this.location = `${location.coords.latitude}, ${location.coords.longitude}`;
+    });
   }
 
   add = () => {
