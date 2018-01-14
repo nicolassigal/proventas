@@ -39,10 +39,10 @@
           <button mat-icon-button *ngIf="client.phone" (click)="call(client.phone)" color="primary">
             <mat-icon aria-label="Example icon-button with a heart icon">call</mat-icon>
           </button>
-          <button mat-icon-button *ngIf="client.phone" (click)="call(client.phone)" color="primary">
+          <button mat-icon-button *ngIf="client.email" (click)="email(client.email)" color="primary">
             <mat-icon aria-label="Example icon-button with a heart icon">mail_outline</mat-icon>
           </button>
-          <button mat-icon-button *ngIf="client.phone" (click)="call(client.phone)" color="primary">
+          <button mat-icon-button *ngIf="client.location" (click)="map(client.location)" color="primary">
             <mat-icon aria-label="Example icon-button with a heart icon">location_on</mat-icon>
           </button>
         </div>
