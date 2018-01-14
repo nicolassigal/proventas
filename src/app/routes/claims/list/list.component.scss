@@ -53,7 +53,7 @@ ul {
 
 }
 
-.clients {
+.claims {
   margin: 138px 0px 80px 0px;
   .nodata {
     display: flex;
@@ -71,14 +71,12 @@ ul {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  .mat-button-ripple-round, .mat-button-focus-overlay, .mat-button-ripple {
-    display:none;
-  }
 }
-
 .mat-icon-button {
   background: #e8e7e7;
-
+  .mat-button-focus-overlay, .mat-button-ripple {
+    display:none;
+  }
   &:first-child {
       margin-left: 0;
       margin-right: 2px;

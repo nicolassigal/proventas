@@ -9,6 +9,9 @@ import { AuthGuard } from './shared/auth.guard';
 import { ClientsComponent } from './routes/clients/clients.component';
 import { ClientListComponent } from './routes/clients/list/list.component';
 import { ClientAddComponent } from './routes/clients/add/add.component';
+import { ClaimsComponent } from './routes/claims/claims.component';
+import { ClaimsListComponent } from './routes/claims/list/list.component';
+import { ClaimsAddComponent } from './routes/claims/add/add.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +19,13 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children: [
     {path: 'clients', component: ClientsComponent, children: [
       {path: 'list', component: ClientListComponent, data: [{title: 'Clientes'}]},
-      {path: 'add', component: ClientAddComponent, data: [{title: 'Agregar Cliente'}]}
+      {path: 'add', component: ClientAddComponent, data: [{title: 'Agregar Cliente'}]},
+      {path: 'edit', component: ClientAddComponent, data: [{title: 'Editar Cliente'}]}
+    ]},
+    {path: 'claims', component: ClaimsComponent, children: [
+      {path: 'list', component: ClaimsListComponent, data: [{title: 'Reclamos'}]},
+      {path: 'add', component: ClaimsAddComponent, data: [{title: 'Agregar Reclamo'}]},
+      {path: 'edit', component: ClaimsAddComponent, data: [{title: 'Editar Reclamo'}]},
     ]},
     {path: 'currency', component: CurrencyComponent, data: [{title: 'Divisas'}]}
   ]},
@@ -38,5 +47,8 @@ export const routingComponents = [
   ClientsComponent,
   ClientListComponent,
   ClientAddComponent,
+  ClaimsAddComponent,
+  ClaimsListComponent,
+  ClaimsComponent,
   CurrencyComponent
 ];

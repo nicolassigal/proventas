@@ -34,11 +34,11 @@ export class ClientAddComponent implements OnInit {
       if (client.id) {
         console.log(client);
         this.btnText = 'Editar';
-        this.name = client.name || '';
-        this.lastname = client.lastname || '';
-        this.email = client.email || '';
-        this.companyName = client.companyName || '';
-        this.phone = client.phone || '';
+        this.name =  client.name !== 'null' &&  client.name !== 'undefined' ?  client.name : '';
+        this.lastname =  client.lastname !== 'null' &&  client.lastname !== 'undefined' ?  client.lastname : '';
+        this.email =  client.email !== 'null' &&  client.email !== 'undefined' ?  client.email : '';
+        this.companyName = client.companyName !== 'null' &&  client.companyName !== 'undefined' ?  client.companyName : '';
+        this.phone = client.phone !== 'null' &&  client.phone !== 'undefined' ?  client.phone : '';
         this.location = client.location !== 'null' &&  client.location !== 'undefined' ?  client.location : '';
       }
     });

@@ -13,6 +13,7 @@ export class ClientListComponent implements OnInit {
   clients: any;
   fullname;
   search;
+  nodata;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private sidebarService: SidebarService,
@@ -24,6 +25,7 @@ export class ClientListComponent implements OnInit {
     this.spinner._show()
     this.storage.getAllData('persons').subscribe(clients => {
       this.spinner._hide();
+      this.nodata = clients.length ? false : true;
         clients.forEach(client => client['displayText'] = `${client['name']} ${client['lastname']}`);
         this.clients = clients;
       });
@@ -33,7 +35,7 @@ export class ClientListComponent implements OnInit {
   }
 
   edit = (client) => {
-    this.router.navigate(['add', client], {relativeTo: this.route.parent});
+    this.router.navigate(['edit', client], {relativeTo: this.route.parent});
   }
 
   call = (tel) => {

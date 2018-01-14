@@ -1,0 +1,44 @@
+<mat-card class="search-box">
+    <div class="input-field">
+        <mat-icon color="primary">search</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Buscar Reclamos" [(ngModel)]="search" name="search">
+        </mat-form-field>
+      </div>
+</mat-card>
+<br/>
+<button mat-mini-fab color="primary" (click)="addClaim()" class="addbtn">
+  <i class="material-icons">add</i>
+</button>
+<div class="claims">
+    <div class="nodata" *ngIf="nodata">Aún no hay reclamos para mostrar</div>
+  <div class="clients-card" *ngFor="let claim of claims | filter: search">
+    <mat-card>
+      <mat-card-header>
+          <button mat-icon-button class="btnMenu" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="edit(claim)">
+                <mat-icon>mode_edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button mat-menu-item (click)="remove(claim)">
+                <mat-icon>remove</mat-icon>
+                <span>Eliminar</span>
+              </button>
+            </mat-menu>
+        <mat-card-title>
+
+        </mat-card-title>
+        <mat-card-subtitle>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-footer>
+      </mat-card-footer>
+    </mat-card>
+    <br/>
+  </div>
+</div>

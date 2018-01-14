@@ -11,6 +11,7 @@
   <i class="material-icons">add</i>
 </button>
 <div class="clients">
+  <div class="nodata" *ngIf="nodata">Aún no hay clientes para mostrar</div>
   <div class="clients-card" *ngFor="let client of clients | filter: search">
     <mat-card>
       <mat-card-header>
