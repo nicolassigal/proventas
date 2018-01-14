@@ -14,6 +14,19 @@
   <div class="clients-card" *ngFor="let client of clients | filter: search">
     <mat-card>
       <mat-card-header>
+          <button mat-icon-button class="btnMenu" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="edit(client)">
+                <mat-icon>mode_edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button mat-menu-item (click)="remove(client)">
+                <mat-icon>remove</mat-icon>
+                <span>Eliminar</span>
+              </button>
+            </mat-menu>
         <mat-card-title>
           <span *ngIf="client.companyName">{{client.companyName}}</span>
           <span *ngIf="!client.companyName">{{client.fullname}}</span>
@@ -36,7 +49,7 @@
       </mat-card-content>
       <mat-card-footer>
         <div class="button-row">
-          <button mat-icon-button *ngIf="client.phone" (click)="call(client.phone)" color="primary">
+          <button mat-ink-ripple="false" mat-icon-button *ngIf="client.phone" (click)="call(client.phone)" color="primary">
             <mat-icon aria-label="Example icon-button with a heart icon">call</mat-icon>
           </button>
           <button mat-icon-button *ngIf="client.email" (click)="email(client.email)" color="primary">
@@ -46,9 +59,6 @@
             <mat-icon aria-label="Example icon-button with a heart icon">location_on</mat-icon>
           </button>
         </div>
-        <!--               <button *ngIf="client.phone" (click)="call(client.phone)" mat-raised-button color="warn">Llamar</button>
-              <button *ngIf="client.email" (click)="email(client.email)" mat-raised-button color="primary">Enviar Correo</button>
-              <button *ngIf="client.location" (click)="map(client.location)" mat-raised-button color="accent">Mapa</button> -->
       </mat-card-footer>
     </mat-card>
     <br/>
