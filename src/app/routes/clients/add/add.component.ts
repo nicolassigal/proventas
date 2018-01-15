@@ -64,7 +64,7 @@ export class ClientAddComponent implements OnInit {
       companyName: this.companyName || null
     };
   this.spinner._show();
-  this.storage.putData('persons', person).then(() => {
+  this.storage.putData('clients', person).then(() => {
     this.spinner._hide();
     this.router.navigate(['list'], {relativeTo: this.route.parent});
   });

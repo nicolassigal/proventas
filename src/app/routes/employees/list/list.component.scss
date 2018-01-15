@@ -40,36 +40,20 @@ ul {
   }
 }
 
-.mat-card-title {
-  width: 280px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-}
-
 .mat-card-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
-  .solved-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    &.resolved {
-      background: green;
-    }
-    &.unresolved {
-      background: red;
-    }
+  button {
+    flex-grow: 1;
+    border-radius: 0;
+    box-shadow: none;
   }
 
 }
 
-.claims {
+.employees {
   margin: 138px 0px 80px 0px;
   .nodata {
     display: flex;
@@ -87,12 +71,14 @@ ul {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-}
-.mat-icon-button {
-  background: #e8e7e7;
-  .mat-button-focus-overlay, .mat-button-ripple {
+  .mat-button-ripple-round, .mat-button-focus-overlay, .mat-button-ripple {
     display:none;
   }
+}
+
+.mat-icon-button {
+  background: #e8e7e7;
+
   &:first-child {
       margin-left: 0;
       margin-right: 2px;

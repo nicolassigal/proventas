@@ -1,0 +1,18 @@
+<article class="claim">
+  <header>
+    <h3>{{claim.entry_date}}</h3>
+    <p><b>Cliente:</b> {{claim.client.companyName}}</p>
+    <p><b>Contacto Cliente:</b> {{claim.client.fullname}}</p>
+    <p><b>Cliente e-mail:</b> {{claim.client.email}}</p>
+    <p><b>Cliente Tel:</b> {{claim.client.phone}}</p>
+    <p><b>Recibe reclamo:</b> {{claim.employee.fullname}}</p>
+    <p><b>Medio:</b> {{claim.medio}}</p>
+  </header>
+  <p><b>Observaciones:</b> {{claim.observation}}</p>
+  <p><b>Resoluci&oacute;n:</b> {{claim.solved}}</p>
+  <p><b>partida:</b> <br>
+    <b>{{claim.lot.title}}</b><br>
+    {{claim.lot.description}}
+  </p>
+  <p><b>Estado:</b> <span *ngIf="claim.resolved">Solucionado</span> <span *ngIf="!claim.resolved">Sin Solución</span></p>
+</article>

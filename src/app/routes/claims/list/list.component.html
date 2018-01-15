@@ -13,7 +13,7 @@
 <div class="claims">
     <div class="nodata" *ngIf="nodata">Aún no hay reclamos para mostrar</div>
   <div class="clients-card" *ngFor="let claim of claims | filter: search">
-    <mat-card>
+    <mat-card (click)="openClaim(claim)">
       <mat-card-header>
           <button mat-icon-button class="btnMenu" [matMenuTriggerFor]="menu">
               <mat-icon>more_vert</mat-icon>
@@ -29,14 +29,21 @@
               </button>
             </mat-menu>
         <mat-card-title>
-
+          <span><b>{{ claim.tracking }}</b></span>
+          <span>{{ claim.entry_date }}</span>
         </mat-card-title>
         <mat-card-subtitle>
+          <div *ngIf="claim.client.companyName">Cliente: {{claim.client.companyName}}</div>
+          <div *ngIf="!claim.client.companyName">Cliente: {{claim.client.fullname}}</div>
+          <div>Recibe: {{claim.employee.fullname}}</div>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <p class="observation">{{claim.observation}}</p>
       </mat-card-content>
       <mat-card-footer>
+          <p><b> Partida: {{claim.lot.title}}</b></p>
+          <div class="solved-indicator" [ngClass]="claim.resolved ? 'resolved':'unresolved'"></div>
       </mat-card-footer>
     </mat-card>
     <br/>

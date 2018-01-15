@@ -1,0 +1,64 @@
+<mat-card class="search-box">
+    <div class="input-field">
+        <mat-icon color="primary">search</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Buscar personal" [(ngModel)]="search" name="search">
+        </mat-form-field>
+      </div>
+</mat-card>
+<br/>
+<button mat-mini-fab color="primary" (click)="addEmployee()" class="addbtn">
+  <i class="material-icons">add</i>
+</button>
+<div class="employees">
+  <div class="nodata" *ngIf="nodata">Aún no hay personal para mostrar</div>
+  <div class="employees-card" *ngFor="let employee of employees | filter: search">
+    <mat-card>
+      <mat-card-header>
+          <button mat-icon-button class="btnMenu" [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="edit(employee)">
+                <mat-icon>mode_edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button mat-menu-item (click)="remove(employee)">
+                <mat-icon>remove</mat-icon>
+                <span>Eliminar</span>
+              </button>
+            </mat-menu>
+        <mat-card-title>
+          <span *ngIf="employee.companyName">{{employee.companyName}}</span>
+          <span *ngIf="!employee.companyName">{{employee.fullname}}</span>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="employee.companyName">
+          <ul>
+            <li>Representante: {{employee.fullname}}</li>
+          </ul>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li *ngIf="employee.phone">
+            <i class="material-icons">phone</i> Tel&eacute;fono: {{ employee.phone }}</li>
+          <li *ngIf="employee.email">
+            <i class="material-icons">email</i> Correo: {{ employee.email }}</li>
+          <li *ngIf="employee.location">
+            <i class="material-icons">location_on</i>Ubicar: {{ employee.location }}</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="button-row">
+          <button mat-ink-ripple="false" mat-icon-button *ngIf="employee.phone" (click)="call(employee.phone)" color="primary">
+            <mat-icon aria-label="Example icon-button with a heart icon">call</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="employee.email" (click)="email(employee.email)" color="primary">
+            <mat-icon aria-label="Example icon-button with a heart icon">mail_outline</mat-icon>
+          </button>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+    <br/>
+  </div>
+</div>

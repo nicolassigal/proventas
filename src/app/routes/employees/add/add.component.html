@@ -1,0 +1,28 @@
+<form>
+    <div class="input-field">
+      <mat-icon color="primary">person</mat-icon>
+      <mat-form-field>
+        <input matInput placeholder="Nombre" [(ngModel)]="name" name="name">
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-icon color="primary">person</mat-icon>
+      <mat-form-field>
+        <input matInput placeholder="Apellido" [(ngModel)]="lastname" name="lastname">
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-icon color="primary">contact_mail</mat-icon>
+      <mat-form-field>
+        <input matInput placeholder="E-Mail" [(ngModel)]="email" name="email">
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-icon color="primary">contact_phone</mat-icon>
+      <mat-form-field>
+        <input matInput placeholder="Tel&eacute;fono" [(ngModel)]="phone" name="phone">
+      </mat-form-field>
+    </div>
+    <br/>
+    <button mat-raised-button color="primary" (click)="add()">{{btnText}}</button>
+  </form>

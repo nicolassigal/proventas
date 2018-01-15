@@ -26,6 +26,7 @@ import { CardListComponent } from './shared/card-list/card-list.component';
 import { CardComponent } from './shared/card/card.component';
 import { SearchTextPipe } from './shared/search-text.pipe';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { EmployeesComponent } from './routes/employees/employees.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -46,7 +47,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     DashboardComponent,
     CardListComponent,
     CardComponent,
-    SearchTextPipe
+    SearchTextPipe,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,10 @@ export class DataStorageService {
     return this.database.collection(collection).doc(`${content.id}`).set(content);
   }
 
+  getDocument = (collection, documentId) => {
+    return this.database.collection(collection).doc(documentId).valueChanges();
+  }
+
   getAllData = (collection, query?) => {
     if (query) {
       switch (query.q) {

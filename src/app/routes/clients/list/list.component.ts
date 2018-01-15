@@ -23,7 +23,7 @@ export class ClientListComponent implements OnInit {
   ngOnInit() {
     this.sidebarService.setTitle(this.route.snapshot.data[0]['title']);
     this.spinner._show()
-    this.storage.getAllData('persons').subscribe(clients => {
+    this.storage.getAllData('clients').subscribe(clients => {
       this.spinner._hide();
       this.nodata = clients.length ? false : true;
         clients.forEach(client => client['displayText'] = `${client['name']} ${client['lastname']}`);
@@ -37,6 +37,8 @@ export class ClientListComponent implements OnInit {
   edit = (client) => {
     this.router.navigate(['edit', client], {relativeTo: this.route.parent});
   }
+
+  remove = (client) => {}
 
   call = (tel) => {
     window.location.href = `tel:${tel}`;
